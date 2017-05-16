@@ -83,7 +83,7 @@ ul, ol {
 }
 
 ul {
-  list-style-type: disc;
+  list-style-type: none;
 }
 
 ol {
@@ -118,6 +118,7 @@ img {
 .date {
   font-style: italic;
   color: $gray;
+  text-align: right;
 }
 
 // Specify the color of the selection
@@ -253,8 +254,8 @@ nav {
 
 .post {
   blockquote {
-    margin: 1.8em .8em;
-    border-left: 2px solid $gray;
+    // margin: 1.8em .8em;
+    border-left: 5px solid $gray;
     padding: 0.1em 1em;
     color: $gray;
     font-size: 22px;
@@ -282,7 +283,11 @@ footer {
   padding: 20px 0;
   text-align: center;
 }
-
+// category
+.category-date{
+  margin-right: 5px;
+  color: $gray;
+}
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
