@@ -128,7 +128,8 @@ img {
 }
 ::selection {
   color: $black;
-  background: $lightGray;
+  // background: $lightGray;
+  background: lightblue;
 }
 
 // Nicolas Gallagher's micro clearfix hack
