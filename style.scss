@@ -259,8 +259,10 @@ nav {
     border-left: 5px solid $gray;
     padding: 0.1em 1em;
     color: $gray;
-    font-size: 22px;
     font-style: italic;
+    p{
+      margin: 10px 0;
+    }
   }
 
   .comments {
