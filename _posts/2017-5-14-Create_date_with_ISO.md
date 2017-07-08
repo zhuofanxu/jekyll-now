@@ -13,6 +13,7 @@ new Date('2017-05-14T00:00:00Z');        //时间字符串 ISO 8601
 new Date('hello');
 // Z表示时区 可以是 +HH:mm;-HH:mm
 ```
+
 > **注意：**构造出的日期用来显示时，会被转换为本地时间（调用 toString 方法):
 
 ```javascript
