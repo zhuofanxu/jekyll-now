@@ -3,7 +3,6 @@ layout: post
 title: web3与小狐狸的那些事
 category: javascript
 ---
-# web3 与小狐狸的一些事
 
 ## 关于web3
 
