@@ -295,4 +295,50 @@ Metamask MetamaskInpageProvider send 则覆写了 web3.js HttpProvider send
 
 到此 Metamask 插件 rpc(同步请求) 接管的实现机制已经分析完毕! 下次会补上 rpc 异步请求部分
 
+## dapp内 探测小狐狸
+在 window load 事件中检测
+
+```javascript
+//是否安装了小狐狸
+if (typeof web3 == 'undefined') {
+    console.log("未安装");
+} else {
+    console.log("已安装");
+}
+
+```
+
+```javascript
+//是否登录并至少拥有一个账号 
+if (typeof web3.eth.defaultAccount == 'undefined') {
+    console.log("未登录或者未创建账号");
+} else {
+    console.log("登录拥有账号");
+}
+
+```
+```javascript
+// 网络类型
+web3.version.getNetwork((err, netId) => {
+    switch (netId) {
+        case "1":
+            console.log('This is mainnet')
+            break
+        case "2":
+            console.log('This is the deprecated Morden test network.')
+            break
+        case "3":
+            console.log('This is the ropsten test network.')
+            break
+        case "4":
+            console.log('This is the Rinkeby test network.')
+            break
+        case "42":
+            console.log('This is the Kovan test network.')
+            break
+        default:
+            console.log('This is an unknown network.')
+        }
+})
+```
 有任何疑问或建议欢迎讨论.
