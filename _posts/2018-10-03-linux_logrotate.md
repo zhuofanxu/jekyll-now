@@ -3,6 +3,12 @@ layout: post
 title: gunicorn 使用 linux logrotate 处理日志文件
 category: linux 运维笔记
 ---
+Normaly each process that opens the file gets its own `file table entry`, 
+but only a single v-node table entry is required for a given file. 
+> One reason each process gets its own file table entry is so that each process has its own `current offset` for the file.
+
+gunicorn worker process 通过 os.fork 创建；他们共享同一个文件的 `file table entry(current offset)`；同时gunicorn 使用的 Python logging package is thread-safe.
+所有 不管worker的类型是啥，它都能正确的处理多个worker下的日志了。
 
 日志文件处理是运维经常要处理的事情，尽管现在语言本身自带的日志系统支持日志切割，但功能往往不能满足我们的需求；如 python 的 RotatingFileHandler。  
 
