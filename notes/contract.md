@@ -121,3 +121,8 @@
     require(tx.origin == msg.sender, "sorry humans only")
     _;
 
+### 以太坊合约交易Input推函数签名
+
+    合约交易 input 的前四个字节 = sha3(合约函数签名)[0:4] 且不可逆；
+    所有在未知函数源代码和abi之前是不可能逆解出函数签名的
+    ethescan 是通过自建 4字节sh3(函数签名) 到 函数签名映射数据库做到的
