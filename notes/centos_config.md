@@ -102,6 +102,16 @@ rpm -qa | grep kernel
 # 非必要的情况下 不必清理旧版内核包
 ```
 
+## java8 安装
+
+    查看可安装的jdk列表
+    yum -y list java*
+    找到 java-1.8.0-openjdk.x86_64   java-1.8.0-openjdk-devel.x86_64 两个匹配的版本
+
+    前者只包括Java运行环境(JRE) 后者为JRE + 工具插件(javac、jps -l 进程查看等工具)
+    
+    yum install java-1.8.0-openjdk-devel.x86_64 （选择带开发者工具的版本)
+
 ## 安装mysql5.7
 添加mysql rpm源
 ```shell
