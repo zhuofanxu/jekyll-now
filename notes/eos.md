@@ -33,6 +33,15 @@
     cleos system newaccount --stake-net "0.1 EOS" --stake-cpu "0.1 EOS" \ 
         --buy-ram-kbytes 8 {creator} {newaccount} {owner_pub} {active_pub}
 
+### EOS 内部 name(eg. account_name、acction_name) 编码
+    eos 内部字符名称采用紧凑型二进制编码方式(这里主要区别传统ascii编码)
+    传统的ascii编码使用 8bit binary(0/1) 映射一个字符 即总共可以映射 2^8 = 256个字符 事实上目前还没有用完
+
+    而eos在 account/action name 字符编码采用的是自定义的编码规则(自定义的映射表)
+    即使用 5bit binary(0/1) 映射一个字符 即总共可以映射 2^5 = 32 个字符(正好包括 a-z . 1-5)32个字符
+    所以说它是紧凑型一点不为过，同时account name 规定为12个字符 12 * 5 = 60(+4凑整字节) 即一个12字符的name下来只需要
+    8个字节存储 (相比直接用acsii编码节省了4个字节 ^_^)
+
 ### cpu/net staked
     自己可以给自己和其他账户 staked
     即使是给其他账户的 staked 只能是自己去 unstaked
